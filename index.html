@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Punhos dos Sete Mares</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #05060c; overflow: hidden; touch-action: none;
+    -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+  #wrap { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  canvas { display: block; background: #000; box-shadow: 0 0 60px rgba(0,0,0,.8); }
+
+  /* Controles de toque (aparecem só em telas sensíveis ao toque, durante a luta) */
+  #touch { position: fixed; inset: 0; display: none; pointer-events: none; font-family: Impact, "Arial Black", sans-serif; }
+  #dpad { position: absolute; left: max(18px, env(safe-area-inset-left)); bottom: 22px; width: 150px; height: 150px;
+    border-radius: 50%; background: rgba(255,255,255,.10); border: 2px solid rgba(255,255,255,.28); pointer-events: auto; }
+  #dknob { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px;
+    border-radius: 50%; background: rgba(255,255,255,.32); }
+  #btns { position: absolute; right: max(14px, env(safe-area-inset-right)); bottom: 18px; width: 230px; height: 160px; pointer-events: none; }
+  #btns button { position: absolute; width: 66px; height: 66px; border-radius: 50%; border: 2px solid rgba(255,255,255,.45);
+    background: rgba(255,255,255,.14); color: #fff; font: inherit; font-size: 13px; letter-spacing: .5px; pointer-events: auto; padding: 0; }
+  #btns button.on { background: rgba(255,210,74,.55); }
+  #btns .lp { left: 0; bottom: 0; } #btns .mk { left: 80px; bottom: 0; } #btns .hp { left: 160px; bottom: 0; }
+  #btns .sp { left: 40px; bottom: 78px; background: rgba(79,208,255,.22); }
+  #btns .su { left: 120px; bottom: 78px; background: rgba(255,90,60,.25); }
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="game" width="960" height="540"></canvas></div>
+
+<div id="touch">
+  <div id="dpad"><div id="dknob"></div></div>
+  <div id="btns">
+    <button class="sp" data-k="sp">ESP</button>
+    <button class="su" data-k="su">SUPER</button>
+    <button class="lp" data-k="lp">SOCO</button>
+    <button class="mk" data-k="mk">CHUTE</button>
+    <button class="hp" data-k="hp">FORTE</button>
+  </div>
+</div>
+
+<script src="js/core.js"></script>
+<script src="js/data.js"></script>
+<script src="js/fighter.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
